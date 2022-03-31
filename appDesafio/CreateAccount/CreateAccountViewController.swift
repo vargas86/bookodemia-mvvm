@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class CreateAccountViewController : UIViewController {
     
@@ -19,6 +21,7 @@ class CreateAccountViewController : UIViewController {
     var confirmPasswordTextField : UITextField?
     var createButton : UIButton?
     var logo : UIImageView?
+    //var botonCierre: UIButton?
     
     var message : MessageOptionView?
     var labelMessage : LabelMessageOptionView?
@@ -29,10 +32,12 @@ class CreateAccountViewController : UIViewController {
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     
+    var alert = ""
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference() //Conexión a la base de datos
         view.backgroundColor = backgroundColor
         initUI()
     }
@@ -43,6 +48,8 @@ class CreateAccountViewController : UIViewController {
         logo?.image = UIImage(named: "book")
         logo?.contentMode = .scaleAspectFit
         view.addSubview(logo!)
+        
+        
         
         ownContent = UIView(frame: CGRect(x: 20, y: 230, width: width - 40, height: height/2 - 50))
         ownContent?.backgroundColor = .white
@@ -143,14 +150,65 @@ class CreateAccountViewController : UIViewController {
     
     @IBAction func createNewAccount(_ sender: Any){
         if ( UsuarioTextField?.text?.isEmpty)! || (emailTextField?.text?.isEmpty)! || (passwordTextField?.text?.isEmpty)! || (confirmPasswordTextField?.text?.isEmpty)!  {
-                  print("Llena todos los campos requeridos")
-               } else {
-                   let vc = UserAccountViewController()
+                          alert = "Llena todos los campos requeridos"
+                            print("Llena todos los campos requeridos")
+        } else {
+        if let usuario = UsuarioTextField?.text,
+           let correo = emailTextField?.text,
+           let pass = passwordTextField?.text  {
+            
+            registroTerminado(nombre: usuario, correo: correo, pass: pass)
+            let vc = ViewController()
 
-                   vc.modalPresentationStyle = .fullScreen
-                   present(vc, animated: true, completion: nil)
+            //vc.modalPresentationStyle = .fullScreen
+            //present(vc, animated: true, completion: nil)
+                  
+               } else {
+                   print("Llena todos los campos requeridos")
+                   
                }
+        }
     }
+    
+    @objc func cierreSesion(){
+        let alerta = UIAlertController(title: "Cerrar sesión", message: "¿Seguro que desea cerrar sesión?", preferredStyle: .alert)
+        let aceptar = UIAlertAction(title: "Aceptar", style: .default) { _ in
+            try! Auth.auth().signOut()
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancelar = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        alerta.addAction(aceptar)
+        alerta.addAction(cancelar)
+        present(alerta, animated: true, completion: nil)
+    }
+    
+    func registroTerminado(nombre: String, correo: String, pass: String){
+        Auth.auth().createUser(withEmail: correo, password: pass) { [self] user, error in
+            if user != nil{
+                print("Usuario creado")
+                let campos = ["nombre": UsuarioTextField?.text, "email": self.emailTextField?.text, "id": Auth.auth().currentUser?.uid]
+                ref?.child("users").child(Auth.auth().currentUser!.uid).setValue(campos)
+                
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                if let error = error?.localizedDescription{
+                    print("Error en Firebase:", error)
+                    let alert = UIAlertController(title: "Error :(", message: error, preferredStyle: .alert)
+                    let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+                    alert.addAction(aceptar)
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Error :(", message: "Error en el código fuente", preferredStyle: .alert)
+                    let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+                    alert.addAction(aceptar)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        
+    }
+    
+
     
 }
 

@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class UserAccountViewController : UIViewController, UITextFieldDelegate  {
 
     var tableView : UITableView?
     var dataSource : CatalogObject?
     var userName : UILabel?
+    var UserNameLogged : UILabel?
+//    var UserNameLoggedName : UILabel?
     var logo : UIImageView?
     var banner : UIImageView?
     var searchContent : UIView?
@@ -20,8 +24,8 @@ class UserAccountViewController : UIViewController, UITextFieldDelegate  {
     var byAuthorButton : UIButton?
     var phraseBook : UILabel?
     
+    var logout: UIButton?
     var SearchTextField: UITextField!
-    
     var SearchPressed : UIButton?
     
     var backgroundColor = UIColor(displayP3Red: 0.92, green: 0.92, blue: 0.92, alpha: 1)
@@ -32,29 +36,51 @@ class UserAccountViewController : UIViewController, UITextFieldDelegate  {
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     
+    var ref: DatabaseReference?
+    
     var booksManager =  BooksManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //SearchTextField.delegate = self
-
+        ref = Database.database().reference() //Conexión a la base de datos
         view.backgroundColor = backgroundColor
-
+        
         getData()
         initUI()
     }
-
+    
     func initUI(){
+        
+        logout = UIButton(frame: CGRect(x: ((width/10)*8)+20, y: 75, width: 40, height: 40))
+        logout?.setImage(UIImage(named: "logout2"), for: .normal)
+        logout?.addTarget(self, action: #selector(logOutUser), for: .touchUpInside)
+        view.addSubview(logout!)
 
-        userName = UILabel(frame: CGRect(x: 20, y: 60, width: width, height: 70))
+        userName = UILabel(frame: CGRect(x: 0, y: 60, width: width/3+100, height: 70))
         userName?.text = "Hola, Juan de Dios"
         userName?.numberOfLines = 1
         userName?.textAlignment = .center
         userName?.font = .boldSystemFont(ofSize: 20)
         view.addSubview(userName!)
+        
+        
+//        UserNameLogged = UILabel(frame: CGRect(x: 20, y: 60, width: width, height: 70))
+//        let userId = (Auth.auth().currentUser?.uid)!
+//        ref?.child("users").child(userId).observeSingleEvent(of: .value, with: { [self] (snatshop) in
+//            let value = snatshop.value as? NSDictionary
+//            UserNameLogged?.text = value!["nombre"] as? String
+//        })
+//        UserNameLogged?.font = .boldSystemFont(ofSize: 20)
+//        UserNameLogged?.textAlignment = .center
+//
+//        view.addSubview(UserNameLogged!)
+        
+        
+        
 
-        logo = UIImageView(frame: CGRect(x: 20, y: 130, width: width, height: 70))
-        logo?.image = UIImage(named: "book")
+        logo = UIImageView(frame: CGRect(x: 18, y: 150, width: width, height: 70))
+        logo?.image = UIImage(named: "bookstore-logo-3")
         logo?.contentMode = .scaleAspectFit
         view.addSubview(logo!)
         
@@ -62,7 +88,7 @@ class UserAccountViewController : UIViewController, UITextFieldDelegate  {
         phraseBook?.text = "No dejes para mañana lo que puedes leer hoy"
         phraseBook?.numberOfLines = 3
         phraseBook?.textAlignment = .center
-        phraseBook?.font = .boldSystemFont(ofSize: 40)
+        phraseBook?.font = .boldSystemFont(ofSize: 30)
         view.addSubview(phraseBook!)
         
         banner = UIImageView(frame: CGRect(x: 0, y: ((height/12)*9), width: width, height: 250))
@@ -205,6 +231,21 @@ class UserAccountViewController : UIViewController, UITextFieldDelegate  {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
+    
+    @objc func logOutUser(){
+        let alerta = UIAlertController(title: "Cerrar sesión", message: "¿Seguro que desea cerrar sesión?", preferredStyle: .alert)
+        let aceptar = UIAlertAction(title: "Aceptar", style: .default) { _ in
+            try! Auth.auth().signOut()
+            self.dismiss(animated: true, completion: nil)
+        }
+
+        let cancelar = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        alerta.addAction(aceptar)
+        alerta.addAction(cancelar)
+        present(alerta, animated: true, completion: nil)
+    }
+    
+    
 }
 
 

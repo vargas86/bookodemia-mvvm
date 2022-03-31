@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD888976B1EE69D095983B4 /* Pods_appDesafio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5731A49D45C04FB4291C0A43 /* Pods_appDesafio.framework */; };
+		FA05643427D9BBD9009C4AD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA05643327D9BBD9009C4AD0 /* GoogleService-Info.plist */; };
 		FA12C3A7279DDEAD007EAA9C /* RegisterButtonOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C3A6279DDEAD007EAA9C /* RegisterButtonOptionView.swift */; };
 		FA12C3A9279DE0B2007EAA9C /* MessageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C3A8279DE0B2007EAA9C /* MessageOptionView.swift */; };
 		FA12C3AB279E0294007EAA9C /* LabelMessageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12C3AA279E0294007EAA9C /* LabelMessageOptionView.swift */; };
@@ -18,6 +20,7 @@
 		FA40E9C127A8DD4700B1EAF3 /* BooksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40E9C027A8DD4700B1EAF3 /* BooksData.swift */; };
 		FA40E9C327A8DDD600B1EAF3 /* BooksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40E9C227A8DDD600B1EAF3 /* BooksManager.swift */; };
 		FA6CA34D27B0F98F006C9C3B /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CA34C27B0F98F006C9C3B /* utils.swift */; };
+		FA7001BB27DDC57400DA0F95 /* TextFieldOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7001BA27DDC57300DA0F95 /* TextFieldOptionView.swift */; };
 		FA97804E279D3D3800F3F57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97804D279D3D3800F3F57E /* AppDelegate.swift */; };
 		FA978050279D3D3800F3F57E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97804F279D3D3800F3F57E /* SceneDelegate.swift */; };
 		FA978052279D3D3800F3F57E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA978051279D3D3800F3F57E /* ViewController.swift */; };
@@ -33,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5731A49D45C04FB4291C0A43 /* Pods_appDesafio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appDesafio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ECB343BD87600F2F9FB6A3F /* Pods-appDesafio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appDesafio.debug.xcconfig"; path = "Target Support Files/Pods-appDesafio/Pods-appDesafio.debug.xcconfig"; sourceTree = "<group>"; };
+		E9C29C8669B10AAF099A41EC /* Pods-appDesafio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appDesafio.release.xcconfig"; path = "Target Support Files/Pods-appDesafio/Pods-appDesafio.release.xcconfig"; sourceTree = "<group>"; };
+		FA05643327D9BBD9009C4AD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA12C3A6279DDEAD007EAA9C /* RegisterButtonOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButtonOptionView.swift; sourceTree = "<group>"; };
 		FA12C3A8279DE0B2007EAA9C /* MessageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageOptionView.swift; sourceTree = "<group>"; };
 		FA12C3AA279E0294007EAA9C /* LabelMessageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMessageOptionView.swift; sourceTree = "<group>"; };
@@ -44,6 +51,7 @@
 		FA40E9C027A8DD4700B1EAF3 /* BooksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksData.swift; sourceTree = "<group>"; };
 		FA40E9C227A8DDD600B1EAF3 /* BooksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksManager.swift; sourceTree = "<group>"; };
 		FA6CA34C27B0F98F006C9C3B /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		FA7001BA27DDC57300DA0F95 /* TextFieldOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldOptionView.swift; sourceTree = "<group>"; };
 		FA97804A279D3D3800F3F57E /* appDesafio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appDesafio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA97804D279D3D3800F3F57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA97804F279D3D3800F3F57E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,12 +73,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD888976B1EE69D095983B4 /* Pods_appDesafio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A62E76CF8B3153E0A6A4A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5731A49D45C04FB4291C0A43 /* Pods_appDesafio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0C9E6849EE3F5DCC1C936A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8ECB343BD87600F2F9FB6A3F /* Pods-appDesafio.debug.xcconfig */,
+				E9C29C8669B10AAF099A41EC /* Pods-appDesafio.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA12C3AC279E49AF007EAA9C /* LogOutAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,11 +137,35 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FA7001B927DC3AF300DA0F95 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FA97804D279D3D3800F3F57E /* AppDelegate.swift */,
+				FA97804F279D3D3800F3F57E /* SceneDelegate.swift */,
+				FA978051279D3D3800F3F57E /* ViewController.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FA95AED327DAE55C00380B72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA978061279D43A900F3F57E /* CallToActionOptionView.swift */,
+				FA12C3A6279DDEAD007EAA9C /* RegisterButtonOptionView.swift */,
+				FA12C3A8279DE0B2007EAA9C /* MessageOptionView.swift */,
+				FA12C3AA279E0294007EAA9C /* LabelMessageOptionView.swift */,
+				FA7001BA27DDC57300DA0F95 /* TextFieldOptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FA978041279D3D3800F3F57E = {
 			isa = PBXGroup;
 			children = (
 				FA97804C279D3D3800F3F57E /* appDesafio */,
 				FA97804B279D3D3800F3F57E /* Products */,
+				C0C9E6849EE3F5DCC1C936A1 /* Pods */,
+				28A62E76CF8B3153E0A6A4A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,22 +180,18 @@
 		FA97804C279D3D3800F3F57E /* appDesafio */ = {
 			isa = PBXGroup;
 			children = (
+				FA7001B927DC3AF300DA0F95 /* Delegates */,
+				FA95AED327DAE55C00380B72 /* Views */,
 				FA6CA34B27B0F96A006C9C3B /* Utils */,
 				FA40E9BF27A8DD2800B1EAF3 /* Model */,
 				FA12C3AC279E49AF007EAA9C /* LogOutAccount */,
 				FA978065279D44E700F3F57E /* UserAccount */,
 				FA978064279D44B300F3F57E /* CreateAccount */,
-				FA97804D279D3D3800F3F57E /* AppDelegate.swift */,
-				FA97804F279D3D3800F3F57E /* SceneDelegate.swift */,
-				FA978051279D3D3800F3F57E /* ViewController.swift */,
 				FA978053279D3D3800F3F57E /* Main.storyboard */,
 				FA978056279D3D3E00F3F57E /* Assets.xcassets */,
 				FA978058279D3D3E00F3F57E /* LaunchScreen.storyboard */,
 				FA97805B279D3D3E00F3F57E /* Info.plist */,
-				FA978061279D43A900F3F57E /* CallToActionOptionView.swift */,
-				FA12C3A6279DDEAD007EAA9C /* RegisterButtonOptionView.swift */,
-				FA12C3A8279DE0B2007EAA9C /* MessageOptionView.swift */,
-				FA12C3AA279E0294007EAA9C /* LabelMessageOptionView.swift */,
+				FA05643327D9BBD9009C4AD0 /* GoogleService-Info.plist */,
 			);
 			path = appDesafio;
 			sourceTree = "<group>";
@@ -189,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA97805E279D3D3E00F3F57E /* Build configuration list for PBXNativeTarget "appDesafio" */;
 			buildPhases = (
+				E5D748D7369D62F2B014D9E8 /* [CP] Check Pods Manifest.lock */,
 				FA978046279D3D3800F3F57E /* Sources */,
 				FA978047279D3D3800F3F57E /* Frameworks */,
 				FA978048279D3D3800F3F57E /* Resources */,
+				AACE42A27E3608D8C7AAA926 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,12 +289,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA97805A279D3D3E00F3F57E /* LaunchScreen.storyboard in Resources */,
+				FA05643427D9BBD9009C4AD0 /* GoogleService-Info.plist in Resources */,
 				FA978057279D3D3E00F3F57E /* Assets.xcassets in Resources */,
 				FA978055279D3D3800F3F57E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AACE42A27E3608D8C7AAA926 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-appDesafio/Pods-appDesafio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-appDesafio/Pods-appDesafio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-appDesafio/Pods-appDesafio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5D748D7369D62F2B014D9E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-appDesafio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA978046279D3D3800F3F57E /* Sources */ = {
@@ -257,6 +348,7 @@
 				FA978062279D43A900F3F57E /* CallToActionOptionView.swift in Sources */,
 				FAEFC4AF27A12036005E5259 /* UserAccountViewController.swift in Sources */,
 				FAEFC4AD27A11F53005E5259 /* ByCategoriesViewController.swift in Sources */,
+				FA7001BB27DDC57400DA0F95 /* TextFieldOptionView.swift in Sources */,
 				FA978052279D3D3800F3F57E /* ViewController.swift in Sources */,
 				FA12C3B0279E4EB9007EAA9C /* CatalogObject.swift in Sources */,
 				FAEFC4A827A108ED005E5259 /* ByNameViewController.swift in Sources */,
@@ -416,6 +508,7 @@
 		};
 		FA97805F279D3D3E00F3F57E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ECB343BD87600F2F9FB6A3F /* Pods-appDesafio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +537,7 @@
 		};
 		FA978060279D3D3E00F3F57E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9C29C8669B10AAF099A41EC /* Pods-appDesafio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

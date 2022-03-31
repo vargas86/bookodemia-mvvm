@@ -95,7 +95,7 @@ class DetailProductViewController: UIViewController {
 //        bookImage?.layer.masksToBounds = true
 //        productContentView?.addSubview(bookImage!)
         
-        bookImage = UIImageView(frame: CGRect(x: 0, y: 0, width: width / 6, height: width / 3))
+        bookImage = UIImageView(frame: CGRect(x: 20, y: 90, width: width / 6, height: width / 3))
         bookImage?.image = UIImage(named: book?.image ?? "")
         bookImage?.contentMode = .scaleAspectFit
         bookImage?.layer.masksToBounds = true
@@ -110,6 +110,30 @@ class DetailProductViewController: UIViewController {
         productCard?.addSubview(bookName!)
         
         //Autor
+        bookAuthor = UILabel(frame: CGRect(x: ((width - 40)/3) + 30, y:40 , width: (width - 40) - (((width - 40)/3) + 40), height: 30))
+        bookAuthor?.text = book?.author
+        bookAuthor?.backgroundColor = .clear
+        bookAuthor?.textAlignment = .center
+        bookAuthor?.font = .boldSystemFont(ofSize: 15)
+        productCard?.addSubview(bookAuthor!)
+        
+        //Categoria
+        bookGenre  = UILabel(frame: CGRect(x: ((width - 40)/3) + 30, y:60 , width: (width - 40) - (((width - 40)/3) + 40), height: 30))
+        bookGenre?.text = book?.genre
+        bookGenre?.backgroundColor = .clear
+        bookGenre?.textAlignment = .center
+        bookGenre?.font = .boldSystemFont(ofSize: 12)
+        productCard?.addSubview(bookGenre!)
+        
+        //Contenido
+        bookSynopsis = UITextView(frame: CGRect(x: 30, y:180 , width: (width-100), height: 200))
+        bookSynopsis?.text = book?.synopsis
+        bookSynopsis?.backgroundColor = .clear
+        bookSynopsis?.textAlignment = .center
+        bookSynopsis?.font = .boldSystemFont(ofSize: 12)
+        productCard?.addSubview(bookSynopsis!)
+        
+        //Autor
 //        productPrice = UILabel(frame: CGRect(x: ((width - 40)/3) + 30, y: 50, width: (width - 40) - (((width - 40)/3) + 40), height: (height/8) - 60))
 //        productPrice?.text = "$\(product?.precio ?? 0.0)"
 //        productPrice?.font = .systemFont(ofSize: 18)
@@ -122,20 +146,19 @@ class DetailProductViewController: UIViewController {
     func createDescription(){
         
         descripcionView = UIView()
-        descripcionView?.backgroundColor = .gray
+        //descripcionView?.backgroundColor = .white
         view.addSubview(descripcionView!)
-        
-        descripcionView?.addAnchorsAndSize(width: nil, height: height/4, left: 20, top: 15, right: 20, bottom: nil, withAnchor: .top, relativeToView: productContentView)
+        descripcionView?.addAnchorsAndSize(width: nil, height: 400, left: 20, top: 15, right: 20, bottom: nil, withAnchor: .top, relativeToView: productContentView)
        
         
         labelTitleDescription = UILabel()
         labelTitleDescription?.text = "Descripción"
         labelTitleDescription?.font = .boldSystemFont(ofSize: 22)
-        labelTitleDescription?.backgroundColor = .purple
+        //labelTitleDescription?.backgroundColor = .gray
         labelTitleDescription?.textAlignment = .center
         
         descripcionView?.addSubview(labelTitleDescription!)
-        labelTitleDescription?.addAnchorsAndSize(width: nil, height: 50, left: 10, top: 10, right: 10, bottom: nil)
+        labelTitleDescription?.addAnchorsAndSize(width: nil, height: 300, left: 10, top: 10, right: 10, bottom: nil)
         
         
         bookSynopsis = UITextView()

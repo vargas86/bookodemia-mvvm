@@ -58,8 +58,8 @@ class ByNameViewController : UIViewController {
         userName?.font = .boldSystemFont(ofSize: 20)
         view.addSubview(userName!)
 
-        logo = UIImageView(frame: CGRect(x: 20, y: 130, width: width, height: 70))
-        logo?.image = UIImage(named: "book")
+        logo = UIImageView(frame: CGRect(x: 18, y: 150, width: width, height: 70))
+        logo?.image = UIImage(named: "bookstore-logo-3")
         logo?.contentMode = .scaleAspectFit
         view.addSubview(logo!)
 
@@ -76,11 +76,13 @@ class ByNameViewController : UIViewController {
         byGenreButton = UIButton(frame: CGRect(x: 10, y: 230, width: width/3 * 2 + 100, height: 55))
         byGenreButton?.setTitle("Categorias", for: .normal)
         byGenreButton?.setTitleColor(blue, for: .normal)
+        byGenreButton?.addTarget(self, action: #selector(byCategories), for: .touchUpInside)
         view.addSubview(byGenreButton!)
 
         byAuthorButton = UIButton(frame: CGRect(x: 10, y: 230, width: width/3 * 3 + 200, height: 55))
         byAuthorButton?.setTitle("Autores", for: .normal)
         byAuthorButton?.setTitleColor(blue, for: .normal)
+        byAuthorButton?.addTarget(self, action: #selector(byAuthors), for: .touchUpInside)
         view.addSubview(byAuthorButton!)
         
         tableView = UITableView(frame: CGRect(x: 10, y: 300, width: width - 20, height: height - 100))
@@ -205,6 +207,33 @@ extension ByNameViewController : UITableViewDelegate{
     ///Numero de secciones que vamos a usar
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource?.indexNames?.count ?? 0
+    }
+    
+    @objc func byCategories(){
+        print("Filtrar por categorias")
+        
+        let vc = ByCategoriesViewController()
+
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func byAuthors(){
+        print("Filtrar por categorias")
+        
+        let vc = ByAuthorViewController()
+
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func byNames(){
+        print("Filtrar por categorias")
+        
+        let vc = ByNameViewController()
+
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
 }
